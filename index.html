@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="foundation.min.css">
+    <script src="angular.min.js"></script>
+    <script src="count.js"></script>
+  </head>
+  <body>
+    <div ng-app='money' class='row'>
+      <div ng-controller="Main" class="large-6 columns">
+        <div class='large-6 columns'>
+          <form>
+            <fieldset>
+              <legend>Money Count</legend>
+                <div class="row collapse">
+                  <div class="small-9 columns">
+                    <input type="number" ng-model="one" ng-change='total()'>
+                  </div>
+                  <div class="small-3 columns">
+                    <span class="postfix radius">1</span>
+                  </div>
+                  <div class="small-9 columns">
+                    <input type="number" ng-model="five" ng-change='total()'>
+                  </div>
+                  <div class="small-3 columns">
+                    <span class="postfix radius">5</span>
+                  </div>
+                  <div class="small-9 columns">
+                    <input type="number" ng-model="ten" ng-change='total()'>
+                  </div>
+                  <div class="small-3 columns">
+                    <span class="postfix radius">10</span>
+                  </div>
+                  <div class="small-9 columns">
+                    <input type="number" ng-model="twenty" ng-change='total()'>
+                  </div>
+                  <div class="small-3 columns">
+                    <span class="postfix radius">20</span>
+                  </div>
+                  <div class="small-9 columns">
+                    <input type="number" ng-model="fifty" ng-change='total()'>
+                  </div>
+                  <div class="small-3 columns">
+                    <span class="postfix radius">50</span>
+                  </div>
+                  <div class="small-9 columns">
+                    <input type="number" ng-model="hundred" ng-change='total()'>
+                  </div>
+                  <div class="small-3 columns">
+                    <span class="postfix radius">100</span>
+                  </div>
+                </div>
+                <h2> Subtotal {{data.sum | currency}}</h2>
+            </fieldset>
+          </form>
+        </div>
+        <form>
+          <fieldset>
+            <legend>Money Out</legend>
+            <div class="row collapse">
+              <div class="small-7 columns">
+                <span class="prefix radius">Starting Bank</span>
+              </div>
+              <div class="small-5 columns">
+                <input type="number" ng-model="startbank" ng-change='total()'>
+              </div>
+              <div class="small-7 columns">
+                <span class="prefix radius">Cash Expenses</span>
+              </div>
+              <div class="small-5 columns">
+                <input type="number" ng-model="expenses" ng-change='total()'>
+              </div>
+              <h2>Sales {{data.sales | currency}}</h2>
+              <h2>Cash Out {{data.cashout | currency}}</h2>
+
+            </div><!-- row collapse -->
+          </fieldset>
+        </form>
+      </div><!-- ng-controller main -->
+    </div>
+  </body>
+</html>
