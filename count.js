@@ -27,4 +27,14 @@ function Main($scope){
       $scope.data.sales - $scope.expenses
       ,0);
   };
+
+  $scope.calc = function(){
+    cashout = $scope.data.cashout;
+    $scope.data.hundred = Math.floor(cashout / 100);
+    $scope.data.fifties = Math.floor((cashout % 100) / 50);
+    $scope.data.twenties = Math.floor((cashout % 50) / 20);
+    $scope.data.tens = Math.floor((cashout % 20) / 10);
+    $scope.data.fives = Math.floor((cashout % 10) / 5);
+    $scope.data.singles = Math.floor((cashout % 5) / 1);
+  };
 }
