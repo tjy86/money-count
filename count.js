@@ -1,12 +1,12 @@
 var app = angular.module("money", [])
 
 function Main($scope){
-  $scope.one = 3;
+  $scope.one = 0;
   $scope.five = 0;
   $scope.ten = 0;
-  $scope.twenty = 20;
-  $scope.fifty = 3;
-  $scope.hundred = 5;
+  $scope.twenty = 0;
+  $scope.fifty = 0;
+  $scope.hundred = 0;
   $scope.startbank = 500;
   $scope.expenses = 0;
 
