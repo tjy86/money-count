@@ -89,6 +89,8 @@
               <h5>{{ data.tens }} Tens</h5>
               <h5>{{ data.fives }} Fives</h5>
               <h5>{{ data.singles }} Singles</h5>
+              ============
+              <h4>{{ data.hundred * 100 + data.fifties * 50 + data.twenties * 20 + data.tens * 10 + data.fives * 5 + data.singles | currency}}</h4>
             </fieldset>
           </form>
         </div>

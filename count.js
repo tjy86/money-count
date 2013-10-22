@@ -1,12 +1,12 @@
 var app = angular.module("money", [])
 
 function Main($scope){
-  $scope.one = 0;
+  $scope.one = 3;
   $scope.five = 0;
   $scope.ten = 0;
-  $scope.twenty = 0;
-  $scope.fifty = 0;
-  $scope.hundred = 0;
+  $scope.twenty = 20;
+  $scope.fifty = 3;
+  $scope.hundred = 5;
   $scope.startbank = 500;
   $scope.expenses = 0;
 
@@ -28,13 +28,58 @@ function Main($scope){
       ,0);
   };
 
+
+  $scope.data.hundred = 0;
+  $scope.data.fifties = 0;
+  $scope.data.twenties = 0;
+  $scope.data.tens = 0;
+  $scope.data.fives = 0;
+  $scope.data.singles = 0;
+
   $scope.calc = function(){
     cashout = $scope.data.cashout;
-    $scope.data.hundred = Math.floor(cashout / 100);
-    $scope.data.fifties = Math.floor((cashout % 100) / 50);
-    $scope.data.twenties = Math.floor((cashout % 50) / 20);
-    $scope.data.tens = Math.floor((cashout % 20) / 10);
-    $scope.data.fives = Math.floor((cashout % 10) / 5);
-    $scope.data.singles = Math.floor((cashout % 5) / 1);
+    $scope.data.hundred = 0;
+    $scope.data.fifties = 0;
+    $scope.data.twenties = 0;
+    $scope.data.tens = 0;
+    $scope.data.fives = 0;
+    $scope.data.singles = 0;
+    c1 = $scope.one;
+    c5 = $scope.five;
+    c10 = $scope.ten;
+    c20 = $scope.twenty;
+    c50 = $scope.fifty;
+    c100 = $scope.hundred;
+
+    while (cashout >= 100 && c100 > 0){
+      c100--;
+      cashout = cashout - 100;
+      $scope.data.hundred++;
+    };
+    while (cashout >= 50 && c50 > 0){
+      c50--;
+      cashout = cashout - 50;
+      $scope.data.fifties++;
+    };
+    while (cashout >= 20 && c20 > 0){
+      c20--;
+      cashout = cashout - 20;
+      $scope.data.twenties++;
+    };
+    while (cashout >= 10 && c10 > 0){
+      c10--;
+      cashout = cashout - 10;
+      $scope.data.tens++;
+    };
+    while (cashout >= 5 && c5 > 0){
+      c5--;
+      cashout = cashout - 5;
+      $scope.data.fives++;
+    };
+    while (cashout >= 1 && c1 > 0){
+      c1--;
+      cashout = cashout - 1;
+      $scope.data.singles++;
+    };
   };
 }
